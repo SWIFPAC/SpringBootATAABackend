@@ -5,11 +5,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(collection = "ataaRecords")
+@Document(collection = "ATAA_Records")
 public class AtaaRecord {
 
-    @Id
-    private long recordID;
+
+   // private long recordID;
+    private String aircraftOwner;
     private String operation;
     private String aircraftType;
     private String runway;
@@ -17,12 +18,15 @@ public class AtaaRecord {
     private String departure;
     private int count;
     private Date date;
-    private boolean overflight;
+    //private boolean overflight;
 
 
     //Getters, Setters, ToString
-    public long getRecordID(){return recordID;}
-    public void setRecordID(long recordID){this.recordID = recordID;}
+   // public long getRecordID(){return recordID;}
+   // public void setRecordID(long recordID){this.recordID = recordID;}
+
+    public String getAircraftOwner(){return aircraftOwner;}
+    public void setAircraftOwner(String aircraftOwner){this.aircraftOwner = aircraftOwner;}
 
     public String getOperation(){return operation;}
     public void setOperation(String operation){this.operation = operation;}
@@ -45,14 +49,14 @@ public class AtaaRecord {
     public Date getDate(){return date;}
     public void setDate(Date date){this.date = date;}
 
-    public boolean isOverflight(){return overflight;}
-    public void setOverflight(){this.overflight = overflight;}
+    //public boolean isOverflight(){return overflight;}
+    //public void setOverflight(){this.overflight = overflight;}
 
 
     @Override
     public String toString() {
         return "AtaaRecord{" +
-                "recordID=" + recordID +
+               " aircraftOwner='" + aircraftOwner + '\'' +
                 ", operation='" + operation + '\'' +
                 ", aircraftType='" + aircraftType + '\'' +
                 ", runway='" + runway + '\'' +
@@ -60,7 +64,6 @@ public class AtaaRecord {
                 ", departure='" + departure + '\'' +
                 ", count=" + count +
                 ", date=" + date +
-                ", overflight=" + overflight +
                 '}';
     }
 }
