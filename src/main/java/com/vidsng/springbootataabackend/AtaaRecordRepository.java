@@ -11,6 +11,8 @@ public interface AtaaRecordRepository extends MongoRepository <AtaaRecord, Strin
 
     @Query("{ 'operation' : 'takeoff', 'aircraftType' : 'f18' }")
     List<AtaaRecord> findTakeoffF18();
+
+
     @Query("{$group : { _id : null, total : { $sum : '$count' } } }")
     AtaaRecord calculateTotalCount();
 
