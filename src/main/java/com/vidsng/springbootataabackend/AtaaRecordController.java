@@ -29,10 +29,18 @@ public class AtaaRecordController {
         return ataaRecordRepository.findAll();
     }
 
-    @GetMapping("/getrecords-by-operation")
-    public List<AtaaRecord> getRecordByOp(@RequestParam String operation){
-        return ataaRecordRepository.findByOperation(operation);
+    //Get Approach Records
+
+    @GetMapping("/get-approach-records")
+    public List<AtaaRecord> getApproachRecords(){
+        return ataaRecordRepository.findTakeoffF18();
     }
+
+
+//    @GetMapping("/get-approach-records")
+//    public List<AtaaRecord> getApproachRecords(){
+//        return (List<AtaaRecord>) ataaRecordRepository.calculateTotalCount();
+//    }
 
 
 }
